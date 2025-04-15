@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notes App - Login/Signup</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+  <!-- Navbar (Header) -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-brand">Notes App</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Features</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Main Container for Login/Signup Forms -->
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Online Notes Taking App</h2>
+    <div class="card mx-auto p-4" style="max-width: 400px;">
+      <div id="auth-toggle" class="mb-3 text-center">
+        <button class="btn btn-outline-primary btn-sm" onclick="toggleForm('login')">Login</button>
+        <button class="btn btn-outline-success btn-sm" onclick="toggleForm('signup')">Signup</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form">
+        <h5>Login</h5>
+        <div class="form-group">
+          <input type="text" id="login-username" class="form-control" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+          <input type="password" id="login-password" class="form-control" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
+
+      <!-- Signup Form -->
+      <form id="signup-form" class="d-none">
+        <h5>Signup</h5>
+        <div class="form-group">
+          <input type="text" id="signup-username" class="form-control" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+          <input type="password" id="signup-password" class="form-control" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-success btn-block">Signup</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer text-center mt-5">
+    <p>&copy; 2025 Notes App | Created By Sam<br>All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="#" class="fab fa-facebook"></a>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-instagram"></a>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

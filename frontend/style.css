@@ -1,0 +1,224 @@
+/* Global Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Welcome Section (Body Background Animation) */
+.welcome-body {
+  background: linear-gradient(120deg, #8e9eab, #eef2f3);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Centered Welcome Container */
+.welcome-container {
+  background: #ffffffcc;
+  padding: 60px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeSlide 1s ease-out;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Text Styles */
+.welcome-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #2d3436;
+  margin-bottom: 15px;
+}
+
+.welcome-subtitle {
+  font-size: 1.1rem;
+  color: #636e72;
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+.welcome-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.welcome-btn {
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: #fff;
+}
+
+.welcome-btn.login {
+  background-color: #0984e3;
+}
+
+.welcome-btn.signup {
+  background-color: #00b894;
+}
+
+.welcome-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Form and Card Styles */
+.card {
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  animation: slideUp 0.7s ease;
+  background: linear-gradient(to bottom right, #ffffff, #f0f4f8);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.card-note {
+  margin-bottom: 20px;
+  border-radius: 1rem;
+  background: linear-gradient(to bottom, #ffffff, #f7f9fb);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card-note:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-note .card-body {
+  padding: 1.2rem;
+  min-height: 120px;
+}
+
+/* Textarea */
+#note-input {
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  resize: none;
+  border: 1px solid #ccc;
+  transition: box-shadow 0.3s ease;
+}
+
+#note-input:focus {
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* Form Fields */
+.form-control {
+  border-radius: 0.5rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+/* Navbar */
+.navbar {
+  border-bottom: 1px solid #dee2e6;
+  background: linear-gradient(to right, #8ec5fc, #e0c3fc);
+  animation: fadeInDown 0.8s ease;
+}
+
+@keyframes fadeInDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.navbar .navbar-brand {
+  font-weight: 700;
+  color: #333;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 25px;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Styles */
+@media (max-width: 576px) {
+  .card-note .btn {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  #note-input {
+    font-size: 0.9rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .welcome-title {
+    font-size: 1.8rem;
+  }
+
+  .welcome-btn {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+ /* Footer Styles */
+ .footer {
+  background:linear-gradient(to right, #8ec5fc, #e0c3fc);
+  color: #fff;
+  text-align: center;
+  padding: .3px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  animation: fadeUp 1s ease-out;
+}

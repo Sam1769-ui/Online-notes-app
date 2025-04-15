@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome | Notes App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Rubik', sans-serif;
+      background: #f5f7fa;
+      color: #2f3e46;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+    }
+
+    /* Background Animation */
+    .welcome-body {
+      background: linear-gradient(120deg, #8e9eab, #eef2f3);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Header Styles */
+    .navbar {
+      background: linear-gradient(to right, #8ec5fc, #e0c3fc);
+      padding: 15px 30px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      animation: fadeInDown 1s ease-out;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes fadeInDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .navbar .navbar-brand {
+      font-weight: 700;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    .navbar .nav-links {
+      display: flex;
+      justify-content: space-between;
+      width: 200px;
+    }
+
+    .navbar .nav-links a {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .navbar .nav-links a:hover {
+      color: #0984e3;
+    }
+
+    /* Footer Styles */
+    .footer {
+      background:linear-gradient(to right, #8ec5fc, #e0c3fc);
+      color: #fff;
+      text-align: center;
+      padding: 1px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      animation: fadeUp 1s ease-out;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .footer .social-links {
+      margin-top: 10px;
+    }
+
+    .footer .social-links a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer .social-links a:hover {
+      color: #0984e3;
+    }
+
+    /* Centered content container */
+    .welcome-container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px 60px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      animation: fadeSlide 1s ease-out;
+      max-width: 80%;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Heading Styles */
+    .welcome-title {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #2d3436;
+      margin-bottom: 20px;
+      animation: bounceIn 2s ease-out;
+    }
+
+    .welcome-subtitle {
+      font-size: 1.2rem;
+      color: #636e72;
+      margin-bottom: 40px;
+      line-height: 1.5;
+      font-style: italic;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Buttons Container */
+    .welcome-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    /* Button Styles */
+    .welcome-btn {
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 30px;
+      text-decoration: none;
+      color: #fff;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .welcome-btn.login {
+      background-color: #0984e3;
+    }
+
+    .welcome-btn.signup {
+      background-color: #00b894;
+    }
+
+    .welcome-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .welcome-btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Input Fields */
+    .input-field {
+      padding: 0.8rem 1.2rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      border: 1px solid #ddd;
+      transition: all 0.3s ease;
+    }
+
+    .input-field:focus {
+      border: 1px solid #0984e3;
+      box-shadow: 0 0 5px rgba(9, 132, 227, 0.3);
+      outline: none;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .welcome-container {
+        padding: 40px 30px;
+      }
+
+      .welcome-title {
+        font-size: 2.2rem;
+      }
+
+      .welcome-subtitle {
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+
+      .welcome-buttons {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .welcome-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .welcome-title {
+        font-size: 1.8rem;
+      }
+
+      .welcome-btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar (Header) -->
+  <nav class="navbar">
+    <div class="navbar-brand">Notes App</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Features</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Main Welcome Section -->
+  <div class="welcome-body">
+    <div class="welcome-container">
+      <h1 class="welcome-title">📘 Welcome to Notes App</h1>
+      <p class="welcome-subtitle">Write, Save, and Organize your thoughts effortlessly.</p>
+      <div class="welcome-buttons">
+        <a href="index.html" class="welcome-btn login">Login</a>
+        <a href="index.html" onclick="localStorage.setItem('toggleForm', 'signup')" class="welcome-btn signup">Signup</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2025 Notes App | Created By Sam<br>All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="#" class="fab fa-facebook"></a>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-instagram"></a>
+    </div>
+  </div>
+
+  <!-- Add FontAwesome icons for social links -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
